@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Required parameters:
+# @raycast.schemaVersion 1
+# @raycast.title New Finder
+# @raycast.mode compact
+
+# Optional parameters:
+# @raycast.icon 🤖
+
+osascript /Users/mr/.config/bin/new-finder.applescript
+

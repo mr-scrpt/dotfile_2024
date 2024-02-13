@@ -1,0 +1,102 @@
+#!/usr/bin/env sh
+
+# ██╗   ██╗ █████╗ ██████╗  █████╗ ██╗
+# ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗██║
+#  ╚████╔╝ ███████║██████╔╝███████║██║
+#   ╚██╔╝  ██╔══██║██╔══██╗██╔══██║██║
+#    ██║   ██║  ██║██████╔╝██║  ██║██║
+#    ╚═╝   ╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝╚═╝
+# A tiling window manager for macOS
+# https://github.com/koekeishiya/yabai
+
+sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
+# global settings
+# yabai -m config mouse_follows_focus off
+# yabai -m config focus_follows_mouse off
+yabai -m config mouse_follows_focus          on
+yabai -m config focus_follows_mouse          autofocus
+yabai -m config window_origin_display default
+yabai -m config window_placement second_child
+yabai -m config window_topmost off
+yabai -m config window_shadow on
+yabai -m config window_opacity off
+yabai -m config window_opacity_duration 0.0
+yabai -m config active_window_opacity 1.0
+yabai -m config normal_window_opacity 0.90
+yabai -m config window_border off
+yabai -m config window_border_width 6
+yabai -m config active_window_border_color 0xff775759
+yabai -m config normal_window_border_color 0xff555555
+yabai -m config insert_feedback_color 0xffd75f5f
+yabai -m config split_ratio 0.50
+yabai -m config auto_balance off
+# yabai -m config auto_balance on
+yabai -m config mouse_modifier alt
+yabai -m config mouse_action1 move
+yabai -m config mouse_action2 resize
+yabai -m config mouse_drop_action swap
+
+# general space settings
+yabai -m config layout bsp
+yabai -m config top_padding 10
+yabai -m config bottom_padding 5
+yabai -m config left_padding 8
+# NOTE: for OBS floating head
+# yabai -m config left_padding                 450
+yabai -m config right_padding 8
+yabai -m config window_gap 10
+
+yabai -m config external_bar all:36:0
+
+
+yabai -m config --layout \
+    {"name": "master-stack", \
+     "type": "custom", \
+     "main-pane-size": 0.6, \
+     "main-pane-split": "vertical", \
+     "second-pane-size": 0.4, \
+     "second-pane-split": "horizontal" \
+    }
+
+yabai -m config --space default --layout bsp --layout fullscreen --layout master-stack
+
+
+# apps to not manage (ignore)
+yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^qView$" manage=off
+yabai -m rule --add app="^The Unarchiver$" manage=off
+yabai -m rule --add app="^Системные настройки$" manage=off
+yabai -m rule --add app="^$" manage=off
+yabai -m rule --add app="^System Settings$" manage=off
+# yabai -m rule --add label="System Preferences" app="^System Preferences$" title=".*" manage=off
+yabai -m rule --add app="^ColorSlurp$" manage=off
+# yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^VLC$" manage=off
+yabai -m rule --add app="^GOM Player$" manage=off
+yabai -m rule --add app="^Hubstaff$" manage=off
+yabai -m rule --add app="^Chromium$" manage=off
+yabai -m rule --add app="^Archive Utility$" manage=off
+yabai -m rule --add app="^Wally$" manage=off
+yabai -m rule --add app="^Pika$" manage=off
+yabai -m rule --add app="^balenaEtcher$" manage=off
+yabai -m rule --add app="^Creative Cloud$" manage=off
+yabai -m rule --add app="^Logi Options$" manage=off
+yabai -m rule --add app="^Alfred Preferences$" manage=off
+yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
+yabai -m rule --add label="Finder" app="^Finder$" title="(Копирование|Очистка корзины|Информация|Перемещение|Свойства)" manage=off
+yabai -m rule --add label="Finder" app="^Finder$" title=".*свойства$" manage=off
+yabai -m rule --add label="Калькулятор" app="^Калькулятор$" manage=off
+
+yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
+yabai -m rule --add label="macfeh" app="^macfeh$" manage=off
+yabai -m rule --add label="App Store" app="^App Store$" manage=off
+yabai -m rule --add label="Activity Monitor" app="^Activity Monitor$" manage=off
+yabai -m rule --add label="KeePassXC" app="^KeePassXC$" manage=off
+yabai -m rule --add label="Calculator" app="^Calculator$" manage=off
+yabai -m rule --add label="Dictionary" app="^Dictionary$" manage=off
+yabai -m rule --add label="mpv" app="^mpv$" manage=off
+yabai -m rule --add label="Software Update" title="Software Update" manage=off
+yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
+echo "yabai configuration loaded.."
