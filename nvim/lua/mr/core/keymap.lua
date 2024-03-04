@@ -1,7 +1,13 @@
+local map = function(keys, func, desc)
+	vim.keymap.set("n", keys, func, { desc = "BASE: " .. desc })
+end
+
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>w", vim.cmd.write)
-vim.keymap.set("n", "<leader>wa", ":wa<CR>")
--- vim.keymap.set("n", "<leader>qq", vim.cmd.q)
+vim.g.maplocalleader = " "
+
+map("<leader>wf", vim.cmd.write, "[W]rite File")
+map("<leader>wa", ":wa<CR>", "[W]rite All File")
+vim.keymap.set("n", "<leader>qb", vim.cmd.q)
 vim.keymap.set("n", "<leader>qa", ":qa!<CR>")
 vim.cmd([[
   command! BufCurOnly execute '%bdelete|edit#|bdelete#'
@@ -118,3 +124,12 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set({ "n", "v" }, "<leader>x", [["+x]])
 vim.keymap.set("n", "<leader>X", [["+X]])
 -- Tabs
+--
+--
+-- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
+-- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
+-- is not what someone will guess without a bit more experience.
+--
+-- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
+-- or just use <C-\><C-n> to exit terminal mode
+vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })

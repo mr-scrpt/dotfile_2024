@@ -49,7 +49,7 @@ return {
 			ensure_installed = {
 				-- "prettier", -- ts/js formatter
 				"stylua", -- lua formatter
-				"eslint_d", -- ts/js linter
+				-- "eslint_d", -- ts/js linter
 				"stylelint",
 			},
 			-- auto-install configured servers (with lspconfig)

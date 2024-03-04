@@ -112,7 +112,7 @@ return {
 		ins_right({
 			-- mode component
 			function()
-				return ""
+				return ""
 			end,
 			color = function()
 				-- auto change color according to neovims mode
@@ -145,6 +145,7 @@ return {
 
 		ins_right({
 			"filename",
+			path = 1,
 			cond = conditions.buffer_not_empty,
 			color = { fg = colors.orange, gui = "bold" },
 		})

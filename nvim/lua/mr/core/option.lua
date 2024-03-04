@@ -1,3 +1,22 @@
+-- Enable mouse mode, can be useful for resizing splits for example!
+vim.opt.mouse = "a"
+
+-- Enable break indent
+vim.opt.breakindent = true
+
+-- Decrease update time
+vim.opt.updatetime = 250
+vim.opt.timeoutlen = 300
+
+-- Sets how neovim will display certain whitespace in the editor.
+--  See `:help 'list'`
+--  and `:help 'listchars'`
+vim.opt.list = true
+vim.opt.listchars = { tab = "| ", trail = "·", nbsp = "␣" }
+
+-- Preview substitutions live, as you type!
+vim.opt.inccommand = "split"
+
 -- diasbled error comment module
 vim.g.skip_ts_context_commentstring_module = true
 vim.opt.guicursor = ""
@@ -32,7 +51,6 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 vim.opt.spelllang = "en"
-vim.opt.updatetime = 25
 
 vim.opt.colorcolumn = "80"
 

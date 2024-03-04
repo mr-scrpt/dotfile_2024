@@ -159,8 +159,10 @@ local config = {
 
 		-- next window
 		{
-			mods = "CTRL",
-			key = "Tab",
+			mods = "CMD",
+			-- mods = "CTRL",
+			-- key = "Tab",
+			key = "k",
 			action = act.Multiple({
 				act.SendKey({ mods = "CTRL", key = "b" }),
 				act.SendKey({ key = "n" }),
@@ -169,8 +171,9 @@ local config = {
 
 		-- prev window
 		{
-			mods = "CTRL|SHIFT",
-			key = "Tab",
+			mods = "CMD",
+			-- mods = "CTRL|SHIFT",
+			key = "j",
 			action = act.Multiple({
 				act.SendKey({ mods = "CTRL", key = "b" }),
 				act.SendKey({ key = "p" }),
@@ -179,7 +182,7 @@ local config = {
 
 		-- move window next
 		{
-			mods = "CMD",
+			mods = "CMD|SHIFT",
 			key = "k",
 			action = act.Multiple({
 				act.SendKey({ mods = "CTRL", key = "b" }),
@@ -189,7 +192,7 @@ local config = {
 
 		-- move window prev
 		{
-			mods = "CMD",
+			mods = "CMD|SHIFT",
 			key = "j",
 			action = act.Multiple({
 				act.SendKey({ mods = "CTRL", key = "b" }),
